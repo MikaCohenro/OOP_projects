@@ -1,0 +1,51 @@
+mika2021,roni.tal
+322523192,314023441
+
+question 1:
+    Code classes:
+    Image:  A package-private class of the package image. father class of WorkingImage
+    WorkingImage: WorkingImage extends the functionality of the Image class to specifically cater to the needs
+    of converting images into ASCII art. It provides methods to pad the image to dimensions that are a
+    power of 2, partition the image into sub-images, and calculate the brightness of each sub-image.
+    called in Shell and AsciiArtAlgorithm
+    CharConverter: The class converts characters to a binary "image" (2D array of booleans). created and
+    used in SubImgCharMatcher.
+    SubImgCharMatcher: The SubImgCharMatcher class is designed for mapping characters to their perceived
+    brightness levels, enabling the selection of characters that best match the brightness of a segment in an
+    image. This functionality is particularly useful in the context of creating ASCII art representations of
+    images. created in Shell and used in AsciiArtAlgorithm.
+    AsciiArtAlgorithm: The AsciiArtAlgorithm class is designed to convert an image into ASCII art by dividing
+    the image into sub-images based on a specified resolution, calculating the brightness of each sub-image,
+    and then matching each sub-image with a corresponding character that represents its brightness level.
+    created in the Shell's user input methods, when the user call to asciiArt.
+    Constants:This class defines various constants used throughout the `ex3` project.
+    They provide default values, error messages, and command keywords for user interaction.
+    used in Shell class.
+    KeyboardInput: this class is to get input from user and read it. used in Shell class.
+    ConsoleAsciiOutput: Output a 2D array of chars to the console. used in shell when we initialize ascii
+    output instance or user chooses to change to console type.
+    HtmlAsciiOutput: Output a 2D array of chars to an HTML file viewable in a web browser.  used in shell
+    when user chooses to change output to html type.
+    Shell: The Shell class provides an interactive command-line interface for users to generate ASCII art
+    from images. It supports various commands to control the characters used, the resolution of the
+    output, the image source, and the output format (console or HTML).the shell class holds an AsciiOutput
+    instance which is from the class HtmlAsciiOutput or ConsoleAsciiOutput and instance of working image and
+    SubImgCharMatcher instance. during the run the class following the user command create AsciiArtAlgorithm
+    instance and gives output from the constants class.
+
+question 2:
+    in subimgmathcer we used TreeMap<Double, TreeSet<Character>> for relative and the absolute brightness
+    datastructures. we found the treemap the most efficient structure to get the results - cuase it's
+    easier to find the closest brightness. for each key of the brightness we had a treeset (as the value) of
+    the chars thar correspond to the key brightness. we used treeset, so we can return the value(the char)
+    with the lowest ascii value in case that few chars have the same brightness.
+    in Shell we used again TreeSet<Character>because we needed to have the chars ordered by their ascii value.
+    in workingImg were using Color[][] to create the pixelArray same as the image class.
+    when we split to sub images we return WorkingImage[][] because we want treat every subimg as an working
+    img instance(to have the same methods and characteristic).
+question 3:
+    our image and workimgimage(which extends image) classes throws an exeption when receiving a wrong path.
+    when receiving a path from user we try to create a user instance. if an exception was thrown we catch it
+    and letting the user know(by a printed message).
+
+

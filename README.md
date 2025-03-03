@@ -1,2 +1,2 @@
 # OOP_projects
-OOP course exercises
+OOP projects, Java
